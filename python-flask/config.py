@@ -14,11 +14,11 @@ class Config:
     SECRET_KEY = os.environ.get('SECRETE_KEY') or str(uuid.uuid4())
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     
-    AT_APIKEY = "3b7af98d0e2fb886898dc495c4e8e235764ecaf1a843caa4fbd92bf116aa1bb7"
-    AT_USERNAME = "darklotus"
-    AT_NUMBER = "+254703554404"
-    SMS_CODE = 2080
-    PRODUCT_NAME = "Nerds Payements"
+    AT_APIKEY = "YOUR API KEY"
+    AT_USERNAME = "YOUR USERNAME"
+    AT_NUMBER = "YOUR PHONE NUMBER"
+    SMS_CODE = "YOUR SMS CODE"
+    PRODUCT_NAME = "YOUR PRODUCT NAME"
     
     @staticmethod
     def init_app(app):
