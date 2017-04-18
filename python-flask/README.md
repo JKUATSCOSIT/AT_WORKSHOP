@@ -96,7 +96,6 @@ mysql> describe microfinance;
 | name          | varchar(30)                  |   YES |     | NULL              |                             |
 | phonenumber   | varchar(20)                  |   YES |     | NULL              |                             |
 | city          | varchar(30)                  |   YES |     | NULL              |                             |
-| validation    | varchar(30)                  |   YES |     | NULL              |                             |
 | reg_date      | timestamp                    |   NO  |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
 
 6 rows in set (0.02 sec)
@@ -308,6 +307,7 @@ a) The script at https://49af2317.ngrok.io/api/v1.1/ussd/callback requests the c
         # print the response on to the page so that our gateway can read it
         return respond(menu_text)	case "2":
 ```			        
+
 b) As a result, Africa's Talking gateway check the callback for the voice number in this case +254703554404.
 c) The callback is a route on our views.py file whose URL is: https://49af2317.ngrok.io/api/v1.1/voice/callback
 d) The instructions are to respond with a text to speech message for the user to enter dtmf digits.
