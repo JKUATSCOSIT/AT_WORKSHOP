@@ -176,7 +176,7 @@ class HighLevelMenu:
 
         # Declare params
         gateway = make_gateway()
-        product_name = "Nerd Payments"
+        product_name = current_app.config["PRODUCT_NAME"]
         currency_code = "KES"
         amount = int(self.user_response)
         metadata = {"sacco": "Nerds", "productId": "321"}
@@ -218,7 +218,7 @@ class HighLevelMenu:
 
             # Declare Params
             gateway = make_gateway()
-            product_name = "Nerd Payments"
+            product_name = current_app.config["PRODUCT_NAME"]
             recipients = [
                 {"phoneNumber": self.phone_number,
                  "currencyCode": "KES",
@@ -270,7 +270,7 @@ class HighLevelMenu:
                 db.session.add(creditorAccount)
 
             # SMS New Balance
-            code = '20080'
+            code = current_app.config["SMS_CODE"]
             recepients = self.phone_number
             message = "We have sent {}/- to {} \nIf \
             this is a wrong number the transaction will fail\n" \
@@ -282,14 +282,6 @@ class HighLevelMenu:
                 gateway.sendMessage(recepients, message, code)
             except AfricasTalkingGatewayException as e:
                 print "Encountered an error while sending: {}\n".format(str(e))
-
-            # TODO figure out
-            # change user level to 0
-            # session_level = SessionLevel.query.filter_by(session_id=session_id).first()
-            # session_level.demote_level()
-            # db.session.add(session_level)
-
-            # Update DB
             db.session.commit()
 
             # respond
@@ -321,7 +313,7 @@ class HighLevelMenu:
 
         # Declare Params
         gateway = make_gateway()
-        productName = "Nerd Payments"
+        productName = current_app.config['PRODUCT_NAME']
         currencyCode = "KES"
         metadata = {"Sacco Repayment": "Nerds", "productId": "321"}
 
